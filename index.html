@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Rating Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <h1>🎬 Movie Rating Predictor</h1>
+            <p>Predict the rating of a movie based on its metadata.</p>
+            <form action="/predict" method="POST">
+                <textarea name="metadata" placeholder="Enter genre, director, and top 3 actors..." required></textarea>
+                <button type="submit">Predict Rating</button>
+            </form>
+            {% if prediction_text %}
+                <div class="result">{{ prediction_text }}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
